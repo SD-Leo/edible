@@ -3,8 +3,10 @@
  */
 package ru.edible.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ru.edible.dao.WordsDao;
 import ru.edible.domain.Word;
 
 import java.util.ArrayList;
@@ -16,19 +18,12 @@ import java.util.List;
 @RestController
 public class WordService {
 
+    @Autowired
+    private WordsDao dao;
+
     @RequestMapping (path = "words")
     public List<Word> getWords() {
-        List<Word> words = new ArrayList<>();
-
-        Word word = new Word();
-        word.setId("1");
-        word.setWord("ОРТОЛАНЫ");
-        word.setEdible(Boolean.TRUE);
-        word.setDescription("Поварское и ресторанное название блюд из жареной мелкой дичи — овсянок, жаворонков и воробьев");
-        words.add(word);
-
-
-        return words;
+        return dao.findAll();
     }
 
 }

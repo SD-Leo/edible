@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan (basePackages = {"ru.edible.service"})
+@ComponentScan (basePackages = {"ru.edible.service", "ru.edible.dao"})
 public class AppApplication {
 
     public static void main(String[] args) {
