@@ -44,6 +44,30 @@ public class WordsDao {
         return words.get(id);
     }
 
+    public List<Word> findEdibleWords() {
+        List<Word> edibleWords = new ArrayList<>();
+
+        words.forEach((s, word) -> {
+            if (word.getEdible()) {
+                edibleWords.add(word);
+            }
+        });
+
+        return edibleWords;
+    }
+
+    public List<Word> findNotEdibleWords() {
+        List<Word> notEdibleWords = new ArrayList<>();
+
+        words.forEach((s, word) -> {
+            if (!word.getEdible()) {
+                notEdibleWords.add(word);
+            }
+        });
+
+        return notEdibleWords;
+    }
+
 
     private void initWords() {
 
