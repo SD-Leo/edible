@@ -4,8 +4,8 @@
 package ru.edible.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.edible.dao.WordsDao;
 import ru.edible.domain.Card;
@@ -28,7 +28,7 @@ public class WordService {
     }
 
     @RequestMapping(path = "words/{id}")
-    public Word getWord(@RequestParam String id) {
+    public Word getWord(@PathVariable String id) {
         return dao.findOne(id);
     }
 
